@@ -1,4 +1,4 @@
-# Image-Colorizer-using-GAN-based-approach
+# 🎨 Image-Colorizer-using-GAN-based-approach
 
 # 🎨 Colorization of Grayscale Images Using Deep Learning
 
@@ -15,11 +15,7 @@ This project implements a deep learning pipeline to automatically colorize grays
 - **Checkpointing**: Automatic model weight saving based on validation PSNR.
 - **Sample Generation**: Saves intermediate colorizations every 5 epochs.
 - **Google Drive Integration**: Persistent storage of checkpoints and samples.
-
----
-
-## 🗂️ Project Structure
-
+- **🔍 LPIPS Score: 0.1564**: Achieves a low LPIPS (Learned Perceptual Image Patch Similarity) score, indicating high perceptual similarity to ground truth images.
 
 ---
 
@@ -47,12 +43,12 @@ This project implements a deep learning pipeline to automatically colorize grays
 
 ## 📈 Training Details
 
-| Parameter         | Value                    |
-|------------------|--------------------------|
-| Batch Size       | Dynamic based on TPUs    |
-| Epochs           | 80                       |
-| Loss Functions   | BCE + L1                 |
-| Validation Metrics | PSNR, SSIM             |
+| Parameter           | Value                    |
+|--------------------|--------------------------|
+| Batch Size         | Dynamic based on TPUs    |
+| Epochs             | 80                       |
+| Loss Functions     | BCE + L1                 |
+| Validation Metrics | PSNR, SSIM, LPIPS        |
 
 ---
 
@@ -88,6 +84,44 @@ This project implements a deep learning pipeline to automatically colorize grays
 
 ---
 
+## ⚡️ Run in Colab
 
+You can open this project directly in Google Colab:
 
+```python
+# If using Google Drive
+from google.colab import drive
+drive.mount('/content/drive')
+```
 
+```bash
+# Install requirements
+pip install tensorflow tensorflow-io scikit-image
+```
+
+```python
+# Training
+!python3 train.py
+
+# Inference
+!python3 inference.py --input_dir ./grayscale_inputs --output_dir ./colorized_outputs
+```
+
+---
+
+## 📚 Citation
+
+If you use this codebase or find it helpful, please cite the project:
+
+```bibtex
+@misc{imagecolorizer2025,
+  title={Image Colorization using GAN-based U-Net Architecture},
+  author={Your Name},
+  year={2025},
+  howpublished={\url{https://github.com/your_username/Image-Colorizer-GAN}}
+}
+```
+
+---
+
+Let me know if you want the actual Python files added next!
